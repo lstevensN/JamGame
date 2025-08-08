@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] FloatDataSO healthData;
 
     //[SerializeField] BoolDataSO isClimbing;
-    //[SerializeField] BoolDataSO isClimbing;
-    //[SerializeField] FloatDataSO climbingSpeed;
+    [SerializeField] BoolDataSO isClimbing;
+    [SerializeField] FloatDataSO climbingSpeed;
     //[SerializeField] EventChannelSO winGameEvent;
 
     [SerializeField] AudioSource attackSound;
@@ -178,14 +178,14 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocityY += Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime * rb.gravityScale;
         }
 
-        //if (isClimbing != null && climbingSpeed != null && isClimbing.Value)
-        //{
-        //    //print("Something should be happening");
-        //    //rb.linearVelocityY = new Vector2(rb.linearVelocityX, 1.0f);
-        //    rb.linearVelocityY = climbingSpeed.Value;
-        //    //rb.AddForceY(rb.linearVelocityY); 
-        //    //rb.linearVelocityY
-        //}
+        if (isClimbing != null && climbingSpeed != null && isClimbing.Value)
+        {
+            //print("Something should be happening");
+            //rb.linearVelocityY = new Vector2(rb.linearVelocityX, 1.0f);
+            rb.linearVelocityY = climbingSpeed.Value;
+            //rb.AddForceY(rb.linearVelocityY); 
+            //rb.linearVelocityY
+        }
 
 
         if (isHit)
@@ -201,9 +201,8 @@ public class PlayerController : MonoBehaviour
         {
             glitch = false;
             Vector2 currentLocation = this.GetComponent<Transform>().position;
-            Vector2 newLocation = new Vector2(currentLocation.x - 5, currentLocation.y);
+            Vector2 newLocation = new Vector2((currentLocation.x - 5) * -(facing), currentLocation.y);
             this.GetComponent<Transform>().position = newLocation;
-            print("To The Left");
         }
 
     }
@@ -297,20 +296,20 @@ public class PlayerController : MonoBehaviour
     public void OnJump()
     {
         if (isDead || hasWon) return;
-        ////print(isClimbing.Value);
-        //if (isClimbing != null && isClimbing.Value) return;
-        ////if (coyoteTimer > 0)
-        //if ((coyoteTimer > 0 && isClimbing == null) || (coyoteTimer > 0 && !isClimbing))
-        if (coyoteTimer > 0 || coyoteTimer > 0 )
+        //print(isClimbing.Value);
+        if (isClimbing != null && isClimbing.Value) return;
+        //if (coyoteTimer > 0)
+        if ((coyoteTimer > 0 && isClimbing == null) || (coyoteTimer > 0 && !isClimbing))
+        //if (coyoteTimer > 0 || coyoteTimer > 0 )
         {
             // First jump - using coyote time for better feel
             jumpButtonReleased = false;
             doubleJumpTimer = doubleJumpTime;  // Enable double jump
             ExecuteJump();
         }
-        ////else if (doubleJumpTimer > 0 )
-        //else if ((doubleJumpTimer > 0 && isClimbing == null) || (doubleJumpTimer > 0 && !isClimbing.Value))
-        else if (doubleJumpTimer > 0  || doubleJumpTimer > 0 )
+        //else if (doubleJumpTimer > 0 )
+        else if ((doubleJumpTimer > 0 && isClimbing == null) || (doubleJumpTimer > 0 && !isClimbing.Value))
+        //else if (doubleJumpTimer > 0  || doubleJumpTimer > 0 )
         {
             // Double jump - only possible during double jump time window
             jumpButtonReleased = false;
@@ -334,10 +333,10 @@ public class PlayerController : MonoBehaviour
     private void ExecuteJump()
     {
         if (isDead) return;
-        //if (isClimbing != null && isClimbing.Value) return;
-        //// Calculate jump velocity using physics formula:
-        //// v = sqrt(2 * g * h) where g is gravity and h is desired height
-        ////float jumpVelocity = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight * rb.gravityScale);
+        if (isClimbing != null && isClimbing.Value) return;
+        // Calculate jump velocity using physics formula:
+        // v = sqrt(2 * g * h) where g is gravity and h is desired height
+        //float jumpVelocity = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight * rb.gravityScale);
         float jumpVelocity = Mathf.Sqrt(-2 * Physics.gravity.y * jumpHeight) * rb.gravityScale;
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
 
@@ -352,7 +351,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead || hasWon) return;
         animator?.SetTrigger("Attack");
-        //if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
+        if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
         if (!isDead && !hasWon && isGrounded) attackSound?.Play();
     }
 
