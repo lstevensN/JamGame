@@ -1,5 +1,6 @@
 using System.Diagnostics.Tracing;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// A responsive 2D character controller that handles movement, jumping, and ground detection.
@@ -79,6 +80,8 @@ public class PlayerController : MonoBehaviour
     bool isDead = false;
     private float deathTimer = 0.0f;
 
+    bool glitch = false;
+
 
 
 
@@ -115,8 +118,6 @@ public class PlayerController : MonoBehaviour
             deathTimer += Time.deltaTime;
             if (deathTimer >= 1.0)
             {
-                //print("????????????????????????????????????");
-                //GameObject.SetGameObjectsActive(sprite.GetInstanceID(), false);
                 GameObject.Destroy(sprite);
             }
             return;
@@ -127,10 +128,10 @@ public class PlayerController : MonoBehaviour
         UpdateHealth();
 
 
-        //if(isClimbing.Value)
-        //{
-        //	throw new NotImplementedException();
-        //}
+        if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.D))
+        {
+            Glitch();
+        }
     }
 
     /// <summary>
@@ -195,6 +196,15 @@ public class PlayerController : MonoBehaviour
         }
 
 
+
+        if(glitch)
+        {
+            glitch = false;
+            Vector2 currentLocation = this.GetComponent<Transform>().position;
+            Vector2 newLocation = new Vector2(currentLocation.x - 5, currentLocation.y);
+            this.GetComponent<Transform>().position = newLocation;
+            print("To The Left");
+        }
 
     }
 
@@ -385,6 +395,16 @@ public class PlayerController : MonoBehaviour
         speedMultiplier = 1;
         animator?.SetBool("Sprinting", false);
     }
+
+
+
+    public void Glitch()
+    {
+        print("Glitching");
+        glitch = true;
+    }
+
+
 
     /// <summary>
     /// Flip the character's facing direction by updating the sprite.
