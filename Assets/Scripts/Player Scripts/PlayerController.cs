@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float fallMultiplier = 2.5f;   // Increases gravity when falling for better feel
     [SerializeField] float coyoteTime = 0.2f;       // Time in seconds character can jump after leaving ground
     [SerializeField] float doubleJumpTime = 0.5f;   // Time window in seconds to perform a double jump
+    [SerializeField] float glitchDistance = 2f;     // Distance to either side that the character will glitch
 
     //[SerializeField] float climbingSpeed = 1.0f;
 
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
 
         glitchTimer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.Q) && Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.E))
         {
             Glitch();
         }
@@ -204,7 +205,7 @@ public class PlayerController : MonoBehaviour
         {
             glitch = false;
             Vector2 currentLocation = this.GetComponent<Transform>().position;
-            Vector2 newLocation = new Vector2((currentLocation.x - 5) * -(facing), currentLocation.y);
+            Vector2 newLocation = new Vector2((currentLocation.x + (glitchDistance * facing)), currentLocation.y);
             this.GetComponent<Transform>().position = newLocation;
         }
 

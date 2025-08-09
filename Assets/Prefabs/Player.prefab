@@ -60,6 +60,7 @@ MonoBehaviour:
   fallMultiplier: 2.5
   coyoteTime: 0.2
   doubleJumpTime: 0
+  glitchDistance: 2
   castDistance: 0.1
   groundFilter:
     useTriggers: 0
