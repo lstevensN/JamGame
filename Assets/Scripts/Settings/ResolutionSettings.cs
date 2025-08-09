@@ -41,7 +41,7 @@ public class ResolutionSettings : MonoBehaviour
 
             if (filteredResolutions[i].width == Screen.width && filteredResolutions[i].height == Screen.height)
             {
-                currentResolutionIndex = 1;
+                currentResolutionIndex = i;
             }
         }
 
@@ -53,7 +53,7 @@ public class ResolutionSettings : MonoBehaviour
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = filteredResolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, true);
+        Screen.SetResolution(resolution.width, resolution.height, false);
     }
 
     public void Toggle()
