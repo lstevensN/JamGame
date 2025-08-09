@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
+    public static GameManager Singleton { get { return instance; } }
 
     [SerializeField] GameObject PlayerRef;
     [SerializeField] GameObject PlayerSpawnPoint;
@@ -108,11 +109,14 @@ public class GameManager : MonoBehaviour
 
         if (SpawnPlayer)
         {
+            Destroy(Player);
             Player = Instantiate(PlayerRef, new Vector2(PlayerSpawnPoint.transform.position.x, PlayerSpawnPoint.transform.localPosition.y), PlayerSpawnPoint.transform.rotation);
         }
 
         if (SpawnDev)
         {
+            Destroy(Dev);
+
             Dev = Instantiate(DevRef, new Vector2(DevSpawnPoint.transform.position.x, DevSpawnPoint.transform.localPosition.y), DevSpawnPoint.transform.rotation);
             Dev.GetComponent<DevHand>().player = Player;
             Dev.GetComponent<DevHand>().playerSpawn = PlayerSpawnPoint;
