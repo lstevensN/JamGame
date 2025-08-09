@@ -89,6 +89,9 @@ public class PlayerController : MonoBehaviour
     float glitchCD = 2.0f;
     float glitchTimer = 2.1f;
 
+    [SerializeField] float attackCD = 10;
+    private bool isAttacking = false;
+    private float attackTimer = 0f;
 
 
 
@@ -134,6 +137,12 @@ public class PlayerController : MonoBehaviour
         UpdateAnimator();
         UpdateHealth();
 
+
+        attackTimer -= Time.deltaTime;
+        if(isAttacking && attackTimer <= 0)
+        {
+            isAttacking = false;
+        }
 
         glitchTimer += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.Q) && Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.E))
@@ -303,7 +312,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnJump()
     {
-        if (isDead || hasWon) return;
+        if (isDead || hasWon || isAttacking) return;
         //print(isClimbing.Value);
         if (isClimbing != null && isClimbing.Value) return;
         //if (coyoteTimer > 0)
@@ -358,10 +367,28 @@ public class PlayerController : MonoBehaviour
     public void OnAttack()
     {
         if (isDead || hasWon) return;
-        animator?.SetTrigger("Attack");
-        if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
-        if (!isDead && !hasWon && isGrounded) attackSound?.Play();
+
+        isAttacking = true;
+        attackTimer = attackCD;
+
+
+        //animator?.SetTrigger("Attack");
+        //if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
+        //if (!isDead && !hasWon && isGrounded) attackSound?.Play();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            if(isAttacking)
+            {
+                collision.gameObject.GetComponent<Enemy>().Die();
+            }
+        }
+    }
+
+
 
     /// <summary>
     /// Trigger death animation. Called when character dies.
@@ -407,6 +434,7 @@ public class PlayerController : MonoBehaviour
 
     public void Glitch()
     {
+        if(isAttacking) return;
         if (glitchTimer <= glitchCD) return;
         glitch = true;
         glitchTimer = 0;
@@ -451,6 +479,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        if(isAttacking) return;
         isDead = true;
         playerDead.Value = true;
     }
