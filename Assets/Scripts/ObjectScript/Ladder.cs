@@ -36,7 +36,6 @@ public class Ladder : MonoBehaviour
         {
             collision.gameObject.TryGetComponent<Rigidbody2D>(out rb);
             playerIsClimbing.Value = true;
-            print("Climbing");
             //collision.gameObject.TryGetComponent<CharacterController2D>(out characterController);
         }
         //rb.gravityScale = 0;

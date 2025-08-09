@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour
     private float deathTimer = 0.0f;
 
     bool glitch = false;
+    float glitchCD = 2.0f;
+    float glitchTimer = 2.1f;
 
 
 
@@ -128,6 +130,7 @@ public class PlayerController : MonoBehaviour
         UpdateHealth();
 
 
+        glitchTimer += Time.deltaTime;
         if(Input.GetKeyDown(KeyCode.A) && Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.D))
         {
             Glitch();
@@ -399,8 +402,9 @@ public class PlayerController : MonoBehaviour
 
     public void Glitch()
     {
-        print("Glitching");
+        if (glitchTimer <= glitchCD) return;
         glitch = true;
+        glitchTimer = 0;
     }
 
 
