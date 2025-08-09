@@ -76,3 +76,6 @@ crashlytics-build.properties
 
 # Small fix
 ProjectSettings/EditorBuildSettings.asset
+
+# Text Mesh Pro RAAAHHHHHHH
+/Assets/TextMesh*Pro
