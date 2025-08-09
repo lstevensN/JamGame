@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTrans : MonoBehaviour
 {
-    public Scene scene;
+    public string scene;
 
     private bool loading = false;
 
@@ -13,19 +13,20 @@ public class SceneTrans : MonoBehaviour
 
     private void Trans(Scene scene, LoadSceneMode mode)
     {
-        if (scene == this.scene)
+        if (scene.name == this.scene)
         {
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.SetActiveScene(this.scene);
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(this.scene));
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!loading && collision.CompareTag("Player"))
+        if (scene != "" && !loading && collision.CompareTag("Player"))
         {
             loading = true;
-            print("Scene Trans! Destination: " + scene.name);
+            print("Scene Trans! Destination: " + scene);
+            SceneManager.LoadSceneAsync(scene);
         }
     }
 }
