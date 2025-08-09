@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c5a7bdf999b6e42a48d879cf2b7b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerGrabbedEvent: {fileID: 11400000, guid: fdd512653544870468ead8f1a556c2ef, type: 2}
+  player: {fileID: 0}
+  playerSpawn: {fileID: 0}
 --- !u!212 &3931264690967815266
 SpriteRenderer:
   m_ObjectHideFlags: 0

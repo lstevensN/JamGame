@@ -296,6 +296,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIsClimbing: {fileID: 11400000, guid: 309a4fa5065e2ef4684fc4cd66878a65, type: 2}
   playerClimbingSpeed: {fileID: 11400000, guid: 91f9a05e0b807284eb9455ec0347bb24, type: 2}
+--- !u!1 &231593255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2914157737457401347, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+  m_PrefabInstance: {fileID: 7977529596557321739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &231593259
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231593255}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &291207221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1638,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 881751931889378703, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1412347534937145439, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.1546288
@@ -1646,6 +1682,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4073279724872626881, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8333772898560062437, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.79
@@ -1665,7 +1705,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2914157737457401347, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 231593259}
   m_SourcePrefab: {fileID: 100100000, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
 --- !u!1001 &8382112322774240099
 PrefabInstance:

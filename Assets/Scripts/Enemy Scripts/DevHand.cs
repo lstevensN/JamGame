@@ -5,10 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class DevHand : MonoBehaviour
 {
+    [SerializeField] EventChannelSO PlayerGrabbedEvent;
+
+
     public GameObject player;
     public GameObject playerSpawn;
 
-    bool playerCaught = false;
+    public bool playerCaught = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,11 +34,14 @@ public class DevHand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Collision");
-
         if (collision.gameObject.tag == "Player")
         {
             playerCaught = true;
+        }
+
+        if (collision.gameObject.tag == "PlayerSpawn")
+        {
+            playerCaught = false;
         }
     }
 }
