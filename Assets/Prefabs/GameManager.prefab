@@ -53,6 +53,7 @@ MonoBehaviour:
   DevRef: {fileID: 3115851277326762904, guid: f1940ce9192ca134c8a3f10c96695c01, type: 3}
   DevSpawnPoint: {fileID: 8048776186362928524}
   SpawnDev: 1
+  playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
 --- !u!114 &-2835720007622074320
 MonoBehaviour:
   m_ObjectHideFlags: 0

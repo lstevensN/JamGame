@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject DevSpawnPoint;
     [SerializeField] bool SpawnDev = true;
 
+    [SerializeField] BoolDataSO playerDead;
+
+
 
 
     GameObject Player;

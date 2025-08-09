@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.01
   lifespan: 5
+  playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
   direction: {x: 0, y: 0}
 --- !u!212 &2427075756335378113
 SpriteRenderer:

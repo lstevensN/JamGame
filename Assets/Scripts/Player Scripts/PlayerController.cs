@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource attackSound;
     [SerializeField] AudioSource damagedSound;
 
+    [SerializeField] BoolDataSO playerDead;
+
+
+
 
     bool hasWon = false;
 
@@ -442,6 +446,13 @@ public class PlayerController : MonoBehaviour
                 Gizmos.DrawRay(raycastHits[i].point, raycastHits[i].normal);
             }
         }
+    }
+
+
+    public void Die()
+    {
+        isDead = true;
+        playerDead.Value = true;
     }
 }
 

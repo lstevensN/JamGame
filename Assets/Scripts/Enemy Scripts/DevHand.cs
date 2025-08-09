@@ -6,6 +6,8 @@ using UnityEngine;
 public class DevHand : MonoBehaviour
 {
     [SerializeField] EventChannelSO PlayerGrabbedEvent;
+    [SerializeField] BoolDataSO playerDead;
+
 
 
     public GameObject player;
@@ -23,6 +25,7 @@ public class DevHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerDead.Value) return;
         if (playerCaught)
         {
             this.transform.position = Vector2.MoveTowards(this.transform.position, playerSpawn.transform.position, 0.01f);

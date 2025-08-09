@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject broom;
+    [SerializeField] BoolDataSO playerDead;
 
     GameObject player;
     bool playerSpotted = false;
@@ -19,6 +20,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerDead.Value) return;
+
         attackTimer -= Time.deltaTime;
 
         if(playerSpotted)

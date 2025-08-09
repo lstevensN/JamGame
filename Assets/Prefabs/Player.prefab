@@ -83,6 +83,7 @@ MonoBehaviour:
   climbingSpeed: {fileID: 11400000, guid: 91f9a05e0b807284eb9455ec0347bb24, type: 2}
   attackSound: {fileID: 0}
   damagedSound: {fileID: 0}
+  playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
 --- !u!114 &2266482369156319610
 MonoBehaviour:
   m_ObjectHideFlags: 0
