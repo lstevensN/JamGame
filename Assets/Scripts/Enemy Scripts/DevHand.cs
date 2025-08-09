@@ -1,9 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class DevHand : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject playerSpawn;
+
+    bool playerCaught = false;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +20,11 @@ public class DevHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerCaught)
+        {
+            this.transform.position = Vector2.MoveTowards(this.transform.position, playerSpawn.transform.position, 0.02f);
+        }
+        else this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, 0.001f);
     }
 
 
@@ -24,7 +35,7 @@ public class DevHand : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            print("Player Caught");
+            playerCaught = true;
         }
     }
 }

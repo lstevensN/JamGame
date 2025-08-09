@@ -48,6 +48,9 @@ MonoBehaviour:
   PlayerRef: {fileID: 1613426748964260854, guid: 3184ff86e4f9ae548b252a5dd2190b3c, type: 3}
   PlayerSpawnPoint: {fileID: 2914157737457401347}
   SpawnPlayer: 1
+  DevRef: {fileID: 3115851277326762904, guid: f1940ce9192ca134c8a3f10c96695c01, type: 3}
+  DevSpawnPoint: {fileID: 0}
+  SpawnDev: 1
 --- !u!1001 &2368035439745208019
 PrefabInstance:
   m_ObjectHideFlags: 0
