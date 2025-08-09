@@ -16,7 +16,7 @@ public class SceneTrans : MonoBehaviour
         if (scene.name == this.scene)
         {
             SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(this.scene));
+            // SceneManager.SetActiveScene(SceneManager.GetSceneByName(this.scene));
         }
     }
 
@@ -25,8 +25,8 @@ public class SceneTrans : MonoBehaviour
         if (scene != "" && !loading && collision.CompareTag("Player"))
         {
             loading = true;
-            print("Scene Trans! Destination: " + scene);
-            SceneManager.LoadSceneAsync(scene);
+            // print("Scene Trans! Destination: " + scene);
+            SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
         }
     }
 }
