@@ -48,7 +48,6 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        return;
         if (InDialogue.Value) return;
         attackTimer = attackCD;
 

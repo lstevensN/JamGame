@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
 
     //Dialogue Lists
-    static string[] devConfrontation = new string[] { "DEV 1: It looks pretty good now! The game should be ready for the next phase soon.", 
+    static string[] dia_DevConfrontation = new string[] { "DEV 1: It looks pretty good now! The game should be ready for the next phase soon.", 
         "DEV 2: That's good! Oh, by the way, have you fixed that bug yet?", 
         "DEV 1: Which one?", 
         "DEV 2: The one where you press 'Q', 'W', and 'E' at the same time.", 
@@ -52,12 +52,14 @@ public class GameManager : MonoBehaviour
     };
     
     
-    static string[] dialogueTest2 = new string[] { "New Dialogue", "Hope This Works" };
-    static string[] dialogueTest3 = new string[] { "Only One Dialogue Box Here" };
+    static string[] dia_GetBackHere = new string[] { "DEV 1: Hey!", "DEV 1: Get back here!" };
+
+
+    static string[] dia_DidHeGlitch = new string[] { "DEV 2: Did he just glitch through that wall???" };
 
 
     //All Dialogue
-    string[][] dialogueList = new string[][] {devConfrontation,  dialogueTest2, dialogueTest3 };
+    string[][] dialogueList = new string[][] {dia_DevConfrontation,  dia_GetBackHere, dia_DidHeGlitch };
 
 
     private void Awake()
