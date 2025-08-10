@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     //Dialogue Lists
     static string[] dialogueTest1 = new string[] { "Test 1", "Test 2", "Test 3" };
-    static string[] dialogueTest2 = new string[] { "New Dialogue", "HopeThisWorks" };
+    static string[] dialogueTest2 = new string[] { "New Dialogue", "Hope This Works" };
     static string[] dialogueTest3 = new string[] { "Only One Dialogue Box Here" };
 
 
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoad;
 
         //Hide Dialogue Screen
-        dialogueScreen.enabled = false;
+        dialogueScreen.gameObject.SetActive(false);
 
         // Spawn Player
         Player = Instantiate(PlayerRef, new Vector2(PlayerSpawnPoint.transform.position.x, PlayerSpawnPoint.transform.localPosition.y), PlayerSpawnPoint.transform.rotation);
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
             currentDialogueSequence = id;
             currentDialogue = 0;
             inDialogue.Value = true;
-            dialogueScreen.enabled = true;
+            dialogueScreen.gameObject.SetActive(true);
             dialogue.SetText(dialogueList[id][0]);
         }
     }
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
         currentDialogueSequence = 0;
         currentDialogue = 0;
         inDialogue.Value = false;
-        dialogueScreen.enabled = false;
+        dialogueScreen.gameObject.SetActive(false);
         dialogue.SetText("");
     }
 
