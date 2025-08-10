@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(Player);
 
-            if (SceneManager.GetActiveScene().name == "Level_0") Player = Instantiate(PlayerRef, new Vector2(-8.5f, -3), PlayerSpawnPoint.transform.rotation);
+            if (scene.name == "Level_0") Player = Instantiate(PlayerRef, new Vector2(-4, -3), PlayerSpawnPoint.transform.rotation);
             else Player = Instantiate(PlayerRef, new Vector2(PlayerSpawnPoint.transform.position.x, PlayerSpawnPoint.transform.localPosition.y), PlayerSpawnPoint.transform.rotation);            
         }
 
