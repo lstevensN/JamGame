@@ -3,7 +3,6 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] int id = 0;
-    [SerializeField] GameManager gameManager;
     [SerializeField] IntDataSO gameHalf;
 
     [SerializeField] bool RepeatDialogue = false;
@@ -21,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
         if(collision.gameObject.tag == "Player")
         {
-            gameManager.OnDialogueEnter(id);
+            GameManager.Singleton.OnDialogueEnter(id);
         }
 
         dialogueTriggered = true;
