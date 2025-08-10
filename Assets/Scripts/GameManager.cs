@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool SpawnDev = true;
 
     [SerializeField] BoolDataSO playerDead;
+    [SerializeField] BoolDataSO inDialogue;
 
 
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     bool Respawn = false;
     bool PrevPlayerGrabbed = false;
     bool PlayerGrabbed = false;
+
 
     private void Awake()
     {

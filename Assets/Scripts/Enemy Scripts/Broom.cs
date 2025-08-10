@@ -6,6 +6,8 @@ public class Broom : MonoBehaviour
     [SerializeField] public float lifespan = 20;
 
     [SerializeField] BoolDataSO playerDead;
+    [SerializeField] BoolDataSO InDialogue;
+
 
 
     public Vector2 direction;
@@ -19,7 +21,7 @@ public class Broom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDead.Value) return;
+        if (playerDead.Value || InDialogue.Value) return;
 
         lifespan -= Time.deltaTime;
         if (lifespan < 0 )
@@ -30,7 +32,7 @@ public class Broom : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (playerDead.Value) return;
+        if (playerDead.Value || InDialogue.Value) return;
 
         transform.position = Vector2.MoveTowards(transform.position, direction, speed);
     }

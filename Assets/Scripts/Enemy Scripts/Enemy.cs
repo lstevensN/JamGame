@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject broom;
     [SerializeField] BoolDataSO playerDead;
+    [SerializeField] BoolDataSO InDialogue;
+
 
     GameObject player;
     bool playerSpotted = false;
@@ -20,7 +22,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDead.Value) return;
+        if (playerDead.Value || InDialogue.Value) return;
 
         attackTimer -= Time.deltaTime;
 
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
+        if (InDialogue.Value) return;
         attackTimer = attackCD;
 
         ///Vector2 direction = player.transform.position - transform.position;
@@ -58,6 +61,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        if (InDialogue.Value) return;
         print("Enemy Died");
         Destroy(gameObject);
     }

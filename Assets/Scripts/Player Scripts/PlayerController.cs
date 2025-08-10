@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource damagedSound;
 
     [SerializeField] BoolDataSO playerDead;
+    [SerializeField] BoolDataSO InDialogue;
+
 
 
 
@@ -105,7 +107,7 @@ public class PlayerController : MonoBehaviour
     //public void OnMove(Vector2 v) => direction = v;
     public void OnMove(Vector2 v)
     {
-        if (isDead || hasWon) return;
+        if (isDead || hasWon || InDialogue.Value) return;
         direction = v;
     }
 
@@ -125,6 +127,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Update()
     {
+        if(InDialogue.Value)
+        {
+            rb.linearVelocityY = 0f;
+        }
+
         if (isDead)
         {
             rb.linearVelocityY = 0f;
@@ -142,13 +149,13 @@ public class PlayerController : MonoBehaviour
 
 
         attackTimer -= Time.deltaTime;
-        if(isAttacking && attackTimer <= 0)
+        if(InDialogue.Value || isAttacking && attackTimer <= 0)
         {
             isAttacking = false;
         }
 
         glitchTimer += Time.deltaTime;
-        if(Input.GetKeyDown(KeyCode.Q) && Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.Q) && Input.GetKeyDown(KeyCode.W) && Input.GetKeyDown(KeyCode.E) && !InDialogue.Value)
         {
             Glitch();
         }
@@ -159,7 +166,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        if (isDead) return;
+        if (isDead || InDialogue.Value) return;
         // Calculate target speed based on input direction
         float targetSpeed = direction.x * speed;
 
@@ -315,7 +322,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnJump()
     {
-        if (isDead || hasWon || isAttacking) return;
+        if (isDead || hasWon || isAttacking || InDialogue.Value) return;
         //print(isClimbing.Value);
         if (isClimbing != null && isClimbing.Value) return;
         //if (coyoteTimer > 0)
@@ -369,7 +376,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnAttack()
     {
-        if (isDead || hasWon) return;
+        if (isDead || hasWon || InDialogue.Value) return;
 
         isAttacking = true;
         attackTimer = attackCD;
@@ -398,6 +405,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void OnDeath()
     {
+        if (InDialogue.Value) return;
         animator?.SetTrigger("Death");
         animator?.SetBool("IsDead", true);
         isDead = true;
@@ -422,7 +430,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnSprintOn()
     {
-        if (hasWon) return;
+        if (hasWon || InDialogue.Value) return;
         speedMultiplier = 2;
         animator?.SetBool("Sprinting", true);
     }
@@ -437,7 +445,7 @@ public class PlayerController : MonoBehaviour
 
     public void Glitch()
     {
-        if(isAttacking) return;
+        if(isAttacking || InDialogue.Value) return;
         if (glitchTimer <= glitchCD) return;
         glitch = true;
         glitchTimer = 0;
@@ -482,7 +490,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        if(isAttacking) return;
+        if(isAttacking || InDialogue.Value) return;
         isDead = true;
         playerDead.Value = true;
     }

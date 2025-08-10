@@ -7,6 +7,7 @@ public class DevHand : MonoBehaviour
 {
     [SerializeField] EventChannelSO PlayerGrabbedEvent;
     [SerializeField] BoolDataSO playerDead;
+    [SerializeField] BoolDataSO InDialogue;
 
 
 
@@ -25,7 +26,7 @@ public class DevHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerDead.Value) return;
+        if (playerDead.Value || InDialogue.Value) return;
         if (playerCaught)
         {
             this.transform.position = Vector2.MoveTowards(this.transform.position, playerSpawn.transform.position, 0.01f);
@@ -37,6 +38,7 @@ public class DevHand : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (InDialogue.Value) return;
         if (collision.gameObject.tag == "Player")
         {
             playerCaught = true;

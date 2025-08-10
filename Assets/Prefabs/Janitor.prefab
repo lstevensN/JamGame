@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broom: {fileID: 5981894876499816479, guid: 18582b4866dbc674eb700ff040606826, type: 3}
   playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
+  InDialogue: {fileID: 11400000, guid: f2b7e260372574c48b87f12992b297cb, type: 2}
   attackCD: 2
 --- !u!212 &7247211352694669860
 SpriteRenderer:
@@ -205,4 +206,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
