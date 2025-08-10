@@ -51,6 +51,7 @@ MonoBehaviour:
   broom: {fileID: 5981894876499816479, guid: 18582b4866dbc674eb700ff040606826, type: 3}
   playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
   InDialogue: {fileID: 11400000, guid: f2b7e260372574c48b87f12992b297cb, type: 2}
+  normalSprite: {fileID: 0}
   attackCD: 2
 --- !u!212 &7247211352694669860
 SpriteRenderer:
@@ -96,7 +97,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 110
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4a6000aa75ba2549bd14ffb86095fe9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

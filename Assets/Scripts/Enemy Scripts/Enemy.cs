@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO InDialogue;
 
+    private SpriteRenderer sr;
 
     GameObject player;
     bool playerSpotted = false;
@@ -13,10 +14,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] float attackCD = 2f;
     float attackTimer = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,9 @@ public class Enemy : MonoBehaviour
 
         if(playerSpotted)
         {
-            //if(player.transform.position.x >)
+            if (player.transform.position.x < transform.position.x) sr.flipX = true;
+            else sr.flipX = false;
+
             if(attackTimer <= 0)
             {
                 Attack();
