@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     //public void OnMove(Vector2 v) => direction = v;
     public void OnMove(Vector2 v)
     {
-        if (isDead || hasWon || InDialogue.Value) return;
+        if (isDead || hasWon) return;
         direction = v;
     }
 
