@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
         {
+            rb.linearVelocityY = 0f;
             deathTimer += Time.deltaTime;
             if (deathTimer >= 1.0)
             {

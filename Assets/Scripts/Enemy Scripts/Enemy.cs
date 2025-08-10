@@ -52,8 +52,8 @@ public class Enemy : MonoBehaviour
         //Vector2 direction = player.GetComponent<Transform>().position - transform.position;
 
         
-        //GameObject m_broom = Instantiate(broom, transform.position, Quaternion.identity);
-        //m_broom.GetComponent<Broom>().direction = player.transform.position;
+        GameObject m_broom = Instantiate(broom, transform.position, Quaternion.identity);
+        m_broom.GetComponent<Broom>().direction = player.transform.position;
     }
 
     public void Die()
