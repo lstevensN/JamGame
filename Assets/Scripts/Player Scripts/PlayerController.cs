@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
                                                      //public bool isClimbing = false;
     float coyoteTimer = 0f;                          // Timer for coyote time jump window
     float doubleJumpTimer = 0f;                      // Timer for double jump window
+    float dialogueTimer = 0f;                        // Timer for swaping dialogue
 
     // Jump state tracking
     bool jumpButtonReleased = true;                  // Whether jump button has been released since last press
@@ -133,6 +134,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void Update()
     {
+        dialogueTimer -= Time.deltaTime;
+
         if(InDialogue.Value)
         {
             rb.linearVelocityY = 0f;

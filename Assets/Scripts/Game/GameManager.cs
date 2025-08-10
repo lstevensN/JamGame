@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     private int currentDialogueSequence = 0;
     private int currentDialogue = 0;
+    private float dialogueTimer = 0.0f;
 
 
     //Dialogue Lists
@@ -55,8 +56,11 @@ public class GameManager : MonoBehaviour
     static string[] dia_DidHeGlitch = new string[] { "DEV 2: Did he just glitch through that wall???" };
 
 
+    static string[] dia_JanitorSurprise = new string[] { "Janitor: What are YOU doing here? Didn't you finish the game already!?" };
+
+
     //All Dialogue
-    string[][] dialogueList = new string[][] {dia_DevConfrontation,  dia_GetBackHere, dia_DidHeGlitch };
+    string[][] dialogueList = new string[][] {dia_DevConfrontation,  dia_GetBackHere, dia_DidHeGlitch, dia_JanitorSurprise };
 
 
     private void Awake()
@@ -91,8 +95,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        dialogueTimer -= Time.deltaTime;
+
         //Check Dialogue Swap
-        if(inDialogue.Value && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        if(inDialogue.Value && (dialogueTimer < 0) && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
         {
             SwapDialogue();
         }
@@ -176,6 +182,7 @@ public class GameManager : MonoBehaviour
             inDialogue.Value = true;
             dialogueScreen.gameObject.SetActive(true);
             dialogue.SetText(dialogueList[id][0]);
+            dialogueTimer = 0.2f;
         }
     }
 
@@ -202,5 +209,6 @@ public class GameManager : MonoBehaviour
         }
 
         dialogue.SetText(dialogueList[currentDialogueSequence][currentDialogue]);
+        dialogueTimer = 0.2f;
     }
 }
