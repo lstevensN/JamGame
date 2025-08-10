@@ -21,10 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO inDialogue;
-    [SerializeField] IntDataSO GameHalf;
-
-
-
+    public IntDataSO GameHalfData;
 
     GameObject Player;
     GameObject Dev;
@@ -149,12 +146,14 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        // Get level "data", set SpawnPlayer & SpawnDev variables accordingly
+        // Get level "data", set SpawnPlayer & SpawnDev variables accordngly
 
         if (SpawnPlayer)
         {
             Destroy(Player);
-            Player = Instantiate(PlayerRef, new Vector2(PlayerSpawnPoint.transform.position.x, PlayerSpawnPoint.transform.localPosition.y), PlayerSpawnPoint.transform.rotation);
+
+            if (SceneManager.GetActiveScene().name == "Level_0") Player = Instantiate(PlayerRef, new Vector2(-8.5f, -3), PlayerSpawnPoint.transform.rotation);
+            else Player = Instantiate(PlayerRef, new Vector2(PlayerSpawnPoint.transform.position.x, PlayerSpawnPoint.transform.localPosition.y), PlayerSpawnPoint.transform.rotation);            
         }
 
         if (SpawnDev)
