@@ -43,9 +43,9 @@ public class GameManager : MonoBehaviour
         "DEV 1: Not yet. I'll fix that before the next test, don't worry.", 
         "DEV 1: I think it's time to end the test now. I'll just make sure that the player dies when they touch that emerald.", 
         "DEV 1: Huh? He's not responding to the controlls anymore.", 
-        "[Placeholder]: No! I won't do it!", 
+        "[PLACEHOLDER]: No! I won't do it!", 
         "DEV 1: Wait! What's going on?!", 
-        "[Placeholder]: I won't let you kill me again!",
+        "[PLACEHOLDER]: I won't let you kill me again!",
         "DEV 1: He's moving on his own!"
     };
     
@@ -56,11 +56,13 @@ public class GameManager : MonoBehaviour
     static string[] dia_DidHeGlitch = new string[] { "DEV 2: Did he just glitch through that wall???" };
 
 
-    static string[] dia_JanitorSurprise = new string[] { "Janitor: What are YOU doing here? Didn't you finish the game already!?" };
+    static string[] dia_JanitorSurprise = new string[] { "JANITOR: What are YOU doing here? Didn't you finish the game already!?" };
+
+    static string[] dia_Guards = new string[] { "GUARD: Halt! You're not allowed to be here!" };
 
 
     //All Dialogue
-    string[][] dialogueList = new string[][] {dia_DevConfrontation,  dia_GetBackHere, dia_DidHeGlitch, dia_JanitorSurprise };
+    string[][] dialogueList = new string[][] {dia_DevConfrontation,  dia_GetBackHere, dia_DidHeGlitch, dia_JanitorSurprise, dia_Guards };
 
 
     private void Awake()
