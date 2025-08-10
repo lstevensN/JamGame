@@ -93,6 +93,8 @@ public class PlayerController : MonoBehaviour
     private bool isAttacking = false;
     private float attackTimer = 0f;
 
+    public bool hasKey = false;
+
 
 
     /// <summary>
