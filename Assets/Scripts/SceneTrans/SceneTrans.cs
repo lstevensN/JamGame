@@ -5,19 +5,15 @@ public class SceneTrans : MonoBehaviour
 {
     public string scene;
 
+    public bool destroyOnGlitch = false;
+
+    [SerializeField] private IntDataSO halfData;
+
     private bool loading = false;
 
-    private void OnEnable() { SceneManager.sceneLoaded += Trans; }
-
-    private void OnDisable() { SceneManager.sceneLoaded -= Trans; }
-
-    private void Trans(Scene scene, LoadSceneMode mode)
+    private void Awake()
     {
-        if (scene.name == this.scene)
-        {
-            // SceneManager.SetActiveScene(SceneManager.GetSceneByName(this.scene));
-            // SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        }
+        if (destroyOnGlitch && halfData.Value == 2) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +21,6 @@ public class SceneTrans : MonoBehaviour
         if (scene != "" && !loading && collision.CompareTag("Player"))
         {
             loading = true;
-            // print("Scene Trans! Destination: " + scene);
             SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
         }
     }

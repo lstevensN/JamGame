@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef621a530ae83f44bb2a61f201a848a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
+  scene: 
+  destroyOnGlitch: 0
+  halfData: {fileID: 11400000, guid: aae0b471021eb114da41def91f6914b7, type: 2}
 --- !u!61 &8068811719615162125
 BoxCollider2D:
   m_ObjectHideFlags: 0

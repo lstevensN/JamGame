@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Broom : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
+    [SerializeField] float speed = 5f;
     [SerializeField] public float lifespan = 20;
 
     [SerializeField] BoolDataSO playerDead;
@@ -21,6 +21,8 @@ public class Broom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(new Vector3(0f, 0f, 500 * Time.deltaTime));
+
         if (playerDead.Value || InDialogue.Value) return;
 
         lifespan -= Time.deltaTime;
@@ -34,7 +36,7 @@ public class Broom : MonoBehaviour
     {
         if (playerDead.Value || InDialogue.Value) return;
 
-        transform.position = Vector2.MoveTowards(transform.position, direction, speed);
+        transform.position += new Vector3(direction.x * speed, direction.y * speed) * Time.deltaTime;
     }
 
 
