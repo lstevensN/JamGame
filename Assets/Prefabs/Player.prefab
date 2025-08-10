@@ -87,6 +87,7 @@ MonoBehaviour:
   damagedSound: {fileID: 0}
   playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
   InDialogue: {fileID: 11400000, guid: f2b7e260372574c48b87f12992b297cb, type: 2}
+  attackBox: {fileID: 8113763767861275471}
   attackCD: 1
   hasKey: 0
 --- !u!114 &2266482369156319610

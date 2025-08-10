@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO InDialogue;
 
+    [SerializeField] BoxCollider2D attackBox;
+
 
 
 
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        GetComponent<BoxCollider2D>().enabled = false;
         //currentHealth = health.getHealth();
         //if (healthData != null) healthData.Value = health.getHealth();
         //winGameEvent?.AddListener(winGame);
@@ -130,6 +133,7 @@ public class PlayerController : MonoBehaviour
         if(InDialogue.Value)
         {
             rb.linearVelocityY = 0f;
+            rb.linearVelocityX = 0f;
         }
 
         if (isDead)
@@ -152,6 +156,7 @@ public class PlayerController : MonoBehaviour
         if(InDialogue.Value || isAttacking && attackTimer <= 0)
         {
             isAttacking = false;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
 
         glitchTimer += Time.deltaTime;
@@ -380,6 +385,7 @@ public class PlayerController : MonoBehaviour
 
         isAttacking = true;
         attackTimer = attackCD;
+        GetComponent<BoxCollider2D>().enabled = true;
 
 
         //animator?.SetTrigger("Attack");
