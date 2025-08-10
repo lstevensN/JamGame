@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO inDialogue;
+    [SerializeField] IntDataSO GameHalf;
 
 
 
@@ -37,13 +38,26 @@ public class GameManager : MonoBehaviour
 
 
     //Dialogue Lists
-    static string[] dialogueTest1 = new string[] { "Test 1", "Test 2", "Test 3" };
+    static string[] devConfrontation = new string[] { "DEV 1: It looks pretty good now! The game should be ready for the next phase soon.", 
+        "DEV 2: That's good! Oh, by the way, have you fixed that bug yet?", 
+        "DEV 1: Which one?", 
+        "DEV 2: The one where you press 'Q', 'W', and 'E' at the same time.", 
+        "DEV 1: Not yet. I'll fix that before the next test, don't worry.", 
+        "DEV 1: I think it's time to end the test now. I'll just make sure that the player dies when they touch that emerald.", 
+        "DEV 1: Huh? He's not responding to the controlls anymore.", 
+        "[Placeholder]: No! I won't do it!", 
+        "DEV 1: Wait! What's going on?!", 
+        "[Placeholder]: I won't let you kill me again!",
+        "DEV 1: He's moving on his own!"
+    };
+    
+    
     static string[] dialogueTest2 = new string[] { "New Dialogue", "Hope This Works" };
     static string[] dialogueTest3 = new string[] { "Only One Dialogue Box Here" };
 
 
     //All Dialogue
-    string[][] dialogueList = new string[][] {dialogueTest1,  dialogueTest2, dialogueTest3 };
+    string[][] dialogueList = new string[][] {devConfrontation,  dialogueTest2, dialogueTest3 };
 
 
     private void Awake()
