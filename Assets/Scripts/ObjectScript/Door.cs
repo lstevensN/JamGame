@@ -3,6 +3,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField] GameObject m_door;
+    [SerializeField] GameObject m_validation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,6 +24,7 @@ public class Door : MonoBehaviour
             {
                 m_door.GetComponent<BoxCollider2D>().isTrigger = true;
                 m_door.GetComponent<SpriteRenderer>().enabled = false;
+                m_validation.gameObject.SetActive(false);
             }
         }
     }
@@ -35,6 +37,7 @@ public class Door : MonoBehaviour
             {
                 m_door.GetComponent<BoxCollider2D>().isTrigger = false;
                 m_door.GetComponent<SpriteRenderer>().enabled = true;
+                m_validation.GetComponent<NoTeleport>().enabled = true;
 
             }
         }
