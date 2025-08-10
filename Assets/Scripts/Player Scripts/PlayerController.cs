@@ -461,7 +461,7 @@ public class PlayerController : MonoBehaviour
         if (isDead) return;
         facing *= -1;  // Toggle between 1 and -1
         if (spriteRenderer != null)
-            spriteRenderer.flipX = (facing == -1);  // Flip sprite when facing left
+            spriteRenderer.flipX = (facing == 1);  // Flip sprite when facing right
     }
 
     private void winGame()
