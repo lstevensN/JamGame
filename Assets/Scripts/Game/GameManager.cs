@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject DevSpawnPoint;
     [SerializeField] bool SpawnDev = true;
 
+    [SerializeField] Canvas dialogueScreen;
+    [SerializeField] TMP_Text dialogue;
+
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO inDialogue;
 
@@ -27,6 +31,16 @@ public class GameManager : MonoBehaviour
     bool Respawn = false;
     bool PrevPlayerGrabbed = false;
     bool PlayerGrabbed = false;
+
+
+    //Dialogue Lists
+    static string[] dialogueTest1 = new string[] { "Test 1", "Test 2", "Test 3" };
+    static string[] dialogueTest2 = new string[] { "New Dialogue", "HopeThisWorks" };
+    static string[] dialogueTest3 = new string[] { "Only One Dialogue Box Here" };
+
+
+    //All Dialogue
+    string[][] dialogueList = new string[][] {dialogueTest1,  dialogueTest2, dialogueTest3 };
 
 
     private void Awake()
@@ -44,6 +58,9 @@ public class GameManager : MonoBehaviour
     {
         // Subscribe to scene load event
         SceneManager.sceneLoaded += OnSceneLoad;
+
+        //Hide Dialogue Screen
+        dialogueScreen.enabled = false;
 
         // Spawn Player
         Player = Instantiate(PlayerRef, new Vector2(PlayerSpawnPoint.transform.position.x, PlayerSpawnPoint.transform.localPosition.y), PlayerSpawnPoint.transform.rotation);
@@ -123,5 +140,13 @@ public class GameManager : MonoBehaviour
             Dev.GetComponent<DevHand>().player = Player;
             Dev.GetComponent<DevHand>().playerSpawn = PlayerSpawnPoint;
         }
+    }
+
+
+    public void OnDialogue(int id)
+    {
+         inDialogue.Value = true;
+
+        dialogueScreen.enabled = true;
     }
 }
