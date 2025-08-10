@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     bool PrevPlayerGrabbed = false;
     bool PlayerGrabbed = false;
 
+    private int currentDialogueSequence = 0;
+    private int currentDialogue = 0;
+
 
     //Dialogue Lists
     static string[] dialogueTest1 = new string[] { "Test 1", "Test 2", "Test 3" };
@@ -75,8 +78,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Check Dialogue Swap
+        if(inDialogue.Value && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
+        {
+            SwapDialogue();
+        }
+
         //respawn
-        if(Input.GetKeyDown(KeyCode.R)) Respawn = true;
+        if(Input.GetKeyDown(KeyCode.R) && !inDialogue.Value) Respawn = true;
 
         //player grabbed
         if(Dev && Dev.GetComponent<DevHand>().playerCaught != PlayerGrabbed)
@@ -143,10 +152,40 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void OnDialogue(int id)
+    public void OnDialogueEnter(int id)
     {
-         inDialogue.Value = true;
+        if(id < dialogueList.Length && dialogueList[id].Length > 0)
+        {
+            currentDialogueSequence = id;
+            currentDialogue = 0;
+            inDialogue.Value = true;
+            dialogueScreen.enabled = true;
+            dialogue.SetText(dialogueList[id][0]);
+        }
+    }
 
-        dialogueScreen.enabled = true;
+    public void OnDialogueExit()
+    {
+        currentDialogueSequence = 0;
+        currentDialogue = 0;
+        inDialogue.Value = false;
+        dialogueScreen.enabled = false;
+        dialogue.SetText("");
+    }
+
+    
+    private void SwapDialogue()
+    {
+        if(!inDialogue.Value) return;
+
+        currentDialogue++;
+
+        if (currentDialogue >= dialogueList[currentDialogueSequence].Length)
+        {
+            OnDialogueExit();
+            return;
+        }
+
+        dialogue.SetText(dialogueList[currentDialogueSequence][currentDialogue]);
     }
 }
