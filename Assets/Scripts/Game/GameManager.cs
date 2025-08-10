@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         // Adjust spawn point (kinda silly, but it works! :D)
         PlayerSpawnPoint.transform.position = new Vector2(
             Player.transform.position.x > 0 ? -15 : 15,
-            Player.transform.position.y > 0 ? 2 : -5
+            Player.transform.position.y > 0 ? 3 : -4
             );
     }
  
