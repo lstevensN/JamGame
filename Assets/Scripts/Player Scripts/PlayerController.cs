@@ -92,6 +92,8 @@ public class PlayerController : MonoBehaviour
     bool glitch = false;
     float glitchCD = 2.0f;
     float glitchTimer = 2.1f;
+    Vector2 previousPosition = Vector2.zero;
+    bool glitchBack = false;
 
     [SerializeField] float attackCD = 10;
     private bool isAttacking = false;
@@ -120,6 +122,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         GetComponent<BoxCollider2D>().enabled = false;
+        FlipDirection();
         //currentHealth = health.getHealth();
         //if (healthData != null) healthData.Value = health.getHealth();
         //winGameEvent?.AddListener(winGame);
@@ -233,10 +236,16 @@ public class PlayerController : MonoBehaviour
         {
             glitch = false;
             Vector2 currentLocation = this.GetComponent<Transform>().position;
+            previousPosition = currentLocation;
             Vector2 newLocation = new Vector2((currentLocation.x + (glitchDistance * facing)), currentLocation.y);
             this.GetComponent<Transform>().position = newLocation;
         }
 
+        if(glitchBack)
+        {
+            glitchBack = false;
+            this.GetComponent<Transform>().position = previousPosition;
+        }
     }
 
     /// <summary>
@@ -499,6 +508,12 @@ public class PlayerController : MonoBehaviour
         if(isAttacking || InDialogue.Value) return;
         isDead = true;
         playerDead.Value = true;
+    }
+
+
+    public void TeleportBack()
+    {
+        glitchBack = true;
     }
 }
 
