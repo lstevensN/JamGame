@@ -457,6 +457,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 614097570884898799, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7058824
+      objectReference: {fileID: 0}
     - target: {fileID: 1412347534937145439, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.4973288
@@ -497,13 +501,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7431161851325797471, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431161851325797471, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431161851325797471, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431161851325797471, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431161851325797471, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431161851325797471, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4292005871
+      objectReference: {fileID: 0}
     - target: {fileID: 8333772898560062437, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.47
+      value: -6.71
       objectReference: {fileID: 0}
     - target: {fileID: 8333772898560062437, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.26
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 9152247304653820642, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_Name
@@ -870,7 +898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &997876614
 Transform:
   m_ObjectHideFlags: 0
