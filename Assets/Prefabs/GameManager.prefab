@@ -260,8 +260,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 577.4, y: -69}
+  m_SizeDelta: {x: 1064.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6455160386723007884
 CanvasRenderer:
@@ -523,6 +523,7 @@ MonoBehaviour:
   dialogue: {fileID: 7431161851325797471}
   playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
   inDialogue: {fileID: 11400000, guid: f2b7e260372574c48b87f12992b297cb, type: 2}
+  GameHalf: {fileID: 0}
 --- !u!114 &-2835720007622074320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +625,14 @@ PrefabInstance:
     - target: {fileID: 625394148351291600, guid: 3039c7f0ea9b4e24a9329015d960db1b, type: 3}
       propertyPath: m_Name
       value: PlayerSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015526949890276662, guid: 3039c7f0ea9b4e24a9329015d960db1b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015526949890276662, guid: 3039c7f0ea9b4e24a9329015d960db1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.28
       objectReference: {fileID: 0}
     - target: {fileID: 6015526949890276662, guid: 3039c7f0ea9b4e24a9329015d960db1b, type: 3}
       propertyPath: m_LocalRotation.w
