@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public bool destroyOnGlitch = true;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        if (destroyOnGlitch && GameManager.Singleton.GameHalfData.Value == 2) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

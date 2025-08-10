@@ -517,13 +517,13 @@ MonoBehaviour:
   PlayerSpawnPoint: {fileID: 2914157737457401347}
   SpawnPlayer: 1
   DevRef: {fileID: 3115851277326762904, guid: f1940ce9192ca134c8a3f10c96695c01, type: 3}
-  DevSpawnPoint: {fileID: 0}
+  DevSpawnPoint: {fileID: 8048776186362928524}
   SpawnDev: 0
   dialogueScreen: {fileID: 8549780616040914990}
   dialogue: {fileID: 7431161851325797471}
   playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
   inDialogue: {fileID: 11400000, guid: f2b7e260372574c48b87f12992b297cb, type: 2}
-  GameHalf: {fileID: 0}
+  GameHalfData: {fileID: 11400000, guid: aae0b471021eb114da41def91f6914b7, type: 2}
 --- !u!114 &-2835720007622074320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +612,11 @@ PrefabInstance:
 --- !u!4 &6707419166047029804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6133451749089694989, guid: a258a8aac99356b4cac3afb9f83163e7, type: 3}
+  m_PrefabInstance: {fileID: 579820787370565409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8048776186362928524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7474023349808857773, guid: a258a8aac99356b4cac3afb9f83163e7, type: 3}
   m_PrefabInstance: {fileID: 579820787370565409}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2368035439745208019

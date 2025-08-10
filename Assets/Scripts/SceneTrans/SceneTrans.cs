@@ -7,13 +7,11 @@ public class SceneTrans : MonoBehaviour
 
     public bool destroyOnGlitch = false;
 
-    [SerializeField] private IntDataSO halfData;
-
     private bool loading = false;
 
     private void Awake()
     {
-        if (destroyOnGlitch && halfData.Value == 2) Destroy(gameObject);
+        if (destroyOnGlitch && GameManager.Singleton.GameHalfData.Value == 2) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
