@@ -10,7 +10,7 @@ public class SceneTrans : MonoBehaviour
 
     private bool loading = false;
 
-    private void Awake()
+    private void Start()
     {
         if (showAfterGlitch && GameManager.Singleton.GameHalfData.Value == 1) Destroy(gameObject);
         if (destroyAfterGlitch && GameManager.Singleton.GameHalfData.Value == 2) Destroy(gameObject);

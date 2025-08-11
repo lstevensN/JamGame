@@ -4,7 +4,7 @@ public class Key : MonoBehaviour
 {
     public bool destroyOnGlitch = true;
 
-    private void Awake()
+    private void Start()
     {
         if (destroyOnGlitch && GameManager.Singleton.GameHalfData.Value == 2) Destroy(gameObject);
     }
