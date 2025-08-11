@@ -3533,11 +3533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768614162074851731, guid: 81f0d2b0842a8494ea4d64e6d76d9220, type: 3}
       propertyPath: RequiredHalf
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768614162074851731, guid: 81f0d2b0842a8494ea4d64e6d76d9220, type: 3}
       propertyPath: GameHalfDependent
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2169379061498647122, guid: 81f0d2b0842a8494ea4d64e6d76d9220, type: 3}
       propertyPath: m_Size.x

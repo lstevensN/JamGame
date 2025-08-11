@@ -21,8 +21,7 @@ public class DialogueTrigger : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             GameManager.Singleton.OnDialogueEnter(id);
+            dialogueTriggered = true;
         }
-
-        dialogueTriggered = true;
     }
 }
