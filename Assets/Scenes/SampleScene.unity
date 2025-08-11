@@ -2170,6 +2170,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8333772898560062437, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.21
+      objectReference: {fileID: 0}
     - target: {fileID: 8806353647510176669, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: DevSpawnPoint
       value: 
@@ -2250,11 +2254,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4561592425452308466, guid: 6b8a9f2796b8bf546a052499e8befdc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.45
+      value: -6.63
       objectReference: {fileID: 0}
     - target: {fileID: 4561592425452308466, guid: 6b8a9f2796b8bf546a052499e8befdc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.97
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 4561592425452308466, guid: 6b8a9f2796b8bf546a052499e8befdc7, type: 3}
       propertyPath: m_LocalPosition.z

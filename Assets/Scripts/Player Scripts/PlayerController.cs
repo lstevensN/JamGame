@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] EventChannelSO winGameEvent;
 
     [SerializeField] AudioSource attackSound;
-    [SerializeField] AudioSource damagedSound;
+    [SerializeField] AudioSource glitchSound;
 
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO InDialogue;
@@ -243,6 +243,7 @@ public class PlayerController : MonoBehaviour
             previousPosition = currentLocation;
             Vector2 newLocation = new Vector2((currentLocation.x + (glitchDistance * facing)), currentLocation.y);
             this.GetComponent<Transform>().position = newLocation;
+            glitchSound?.Play();
         }
 
         if(glitchBack)
@@ -401,7 +402,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = true;
 
         animator?.SetTrigger("Attack");
-        //if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
+        if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
         //if (!isDead && !hasWon && isGrounded) attackSound?.Play();
     }
 
@@ -440,7 +441,7 @@ public class PlayerController : MonoBehaviour
         //
         //health.isInvincible = true;
         animator?.SetTrigger("Hit");
-        damagedSound?.Play();
+        //damagedSound?.Play();
         invincibilityFrames = 1;
         isHit = true;
 

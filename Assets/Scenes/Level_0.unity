@@ -637,6 +637,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2177593430299371042, guid: adb7b802e08b30a44ba9b889f42c12d1, type: 3}
+      propertyPath: m_Size.x
+      value: 1.2555561
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177593430299371042, guid: adb7b802e08b30a44ba9b889f42c12d1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.008812338
+      objectReference: {fileID: 0}
     - target: {fileID: 2726543553229453440, guid: adb7b802e08b30a44ba9b889f42c12d1, type: 3}
       propertyPath: m_Name
       value: SecondHalfTrigger
@@ -1164,6 +1172,14 @@ PrefabInstance:
     - target: {fileID: 6206337235978882558, guid: 018fda69646f61149989a35ae98a92a1, type: 3}
       propertyPath: scene
       value: Level_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068811719615162125, guid: 018fda69646f61149989a35ae98a92a1, type: 3}
+      propertyPath: m_Size.x
+      value: 2.1813312
+      objectReference: {fileID: 0}
+    - target: {fileID: 8068811719615162125, guid: 018fda69646f61149989a35ae98a92a1, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.9093344
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

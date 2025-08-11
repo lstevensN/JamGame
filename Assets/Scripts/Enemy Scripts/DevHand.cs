@@ -10,6 +10,7 @@ public class DevHand : MonoBehaviour
     [SerializeField] BoolDataSO InDialogue;
     [SerializeField] Sprite lightHand;
     [SerializeField] Sprite darkHand;
+    [SerializeField] AudioSource click;
 
 
 
@@ -53,12 +54,14 @@ public class DevHand : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = darkHand;
+            click?.Play();
             playerCaught = true;
         }
 
         if (collision.gameObject.tag == "PlayerSpawn")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = lightHand;
+            click?.Play();
             playerCaught = false;
             waitTimer = 2.0f;
         }

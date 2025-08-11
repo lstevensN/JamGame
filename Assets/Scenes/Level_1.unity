@@ -2089,18 +2089,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8333772898560062437, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -14
-      objectReference: {fileID: 0}
-    - target: {fileID: 8333772898560062437, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8806353647510176669, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
-      propertyPath: GameHalf
-      value: 
-      objectReference: {fileID: 11400000, guid: aae0b471021eb114da41def91f6914b7, type: 2}
     - target: {fileID: 9152247304653820642, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_Name
       value: GameManager

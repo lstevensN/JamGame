@@ -21,9 +21,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas dialogueScreen;
     [SerializeField] TMP_Text dialogue;
 
+    [SerializeField] AudioSource firstSong;
+    [SerializeField] AudioSource secondSong;
+
     public BoolDataSO playerDead;
     [SerializeField] BoolDataSO inDialogue;
-    public IntDataSO GameHalfData;
+    [SerializeField] public IntDataSO GameHalfData;
 
     GameObject Player;
     GameObject Dev;
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     bool Respawn = false;
     bool PrevPlayerGrabbed = false;
     bool PlayerGrabbed = false;
+    int prevHalf = 1;
 
     private int currentDialogueSequence = 0;
     private int currentDialogue = 0;
@@ -127,6 +131,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        //change music when half changes
+        if(GameHalfData.Value != prevHalf)
+        {
+            prevHalf = 2;
+            firstSong.Stop();
+            secondSong.Play();
+        }
+
         // Adjust spawn point (kinda silly, but it works! :D)
         PlayerSpawnPoint.transform.position = new Vector2(
             Player.transform.position.x > 0 ? -15 : 15,
@@ -193,6 +205,17 @@ public class GameManager : MonoBehaviour
             Dev = Instantiate(DevRef, new Vector2(DevSpawnPoint.transform.position.x, DevSpawnPoint.transform.localPosition.y), DevSpawnPoint.transform.rotation);
             Dev.GetComponent<DevHand>().player = Player;
             Dev.GetComponent<DevHand>().playerSpawn = PlayerReturnPoint;
+        }
+
+        if(GameHalfData.Value == 1)
+        {
+            secondSong?.Stop();
+            firstSong?.Play();
+        }
+        if(GameHalfData.Value == 2)
+        {
+            firstSong?.Stop();
+            secondSong?.Play();
         }
     }
 
