@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     static string[] dia_GetBackHere = new string[] { "DEV 1: Hey!", "DEV 1: Get back here!" };
 
 
-    static string[] dia_DidHeGlitch = new string[] { "DEV 2: Did he just glitch through that wall???" };
+    static string[] dia_DidHeGlitch = new string[] { "DEV 2: Did he just glitch through that door???" };
 
 
     static string[] dia_JanitorSurprise = new string[] { "JANITOR: What are YOU doing here? Didn't you finish the game already!?" };
