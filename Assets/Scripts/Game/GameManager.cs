@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if(scene.name == "Level_0")
+        if (scene.name == "Level_3" && GameHalfData.Value == 2)
         {
             SpawnDev = true;
         }
