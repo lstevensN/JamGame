@@ -17,6 +17,9 @@ public class DevHand : MonoBehaviour
     public GameObject playerSpawn;
 
     public bool playerCaught = false;
+    public bool wait = false;
+
+    float waitTimer = 0.0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,7 +36,13 @@ public class DevHand : MonoBehaviour
         {
             this.transform.position = Vector2.MoveTowards(this.transform.position, playerSpawn.transform.position, 0.01f);
         }
-        else this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, 0.001f);
+        else if (!wait) this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, 0.001f);
+
+        waitTimer -= Time.deltaTime;
+        if(waitTimer < 0.0f)
+        {
+            wait = false;
+        }
     }
 
 
@@ -51,6 +60,7 @@ public class DevHand : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = lightHand;
             playerCaught = false;
+            waitTimer = 2.0f;
         }
     }
 }

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] GameObject DevRef;
     [SerializeField] GameObject DevSpawnPoint;
+    [SerializeField] GameObject PlayerReturnPoint;
     [SerializeField] bool SpawnDev = true;
 
     [SerializeField] Canvas dialogueScreen;
@@ -141,7 +142,8 @@ public class GameManager : MonoBehaviour
         {
             if(SpawnPlayer)
             {
-                Player.GetComponent<Transform>().position = PlayerSpawnPoint.transform.position;
+                //Player.GetComponent<Transform>().position = PlayerSpawnPoint.transform.position;
+                Player.GetComponent<Transform>().position = PlayerReturnPoint.transform.position;
             }
             Respawn = false;
         }
@@ -167,6 +169,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if(scene.name == "Level_0")
+        {
+            SpawnDev = true;
+        }
+        else
+        {
+            SpawnDev = false;
+        }
+
         if (SpawnPlayer)
         {
             Destroy(Player);
@@ -181,7 +192,7 @@ public class GameManager : MonoBehaviour
 
             Dev = Instantiate(DevRef, new Vector2(DevSpawnPoint.transform.position.x, DevSpawnPoint.transform.localPosition.y), DevSpawnPoint.transform.rotation);
             Dev.GetComponent<DevHand>().player = Player;
-            Dev.GetComponent<DevHand>().playerSpawn = PlayerSpawnPoint;
+            Dev.GetComponent<DevHand>().playerSpawn = PlayerReturnPoint;
         }
     }
 
