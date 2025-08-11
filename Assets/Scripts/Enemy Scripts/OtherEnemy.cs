@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class OtherEnemy : MonoBehaviour
 {
-    [SerializeField] GameObject broom;
+    [SerializeField] GameObject bullet;
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO InDialogue;
 
@@ -57,9 +57,9 @@ public class Enemy : MonoBehaviour
         //Vector2 direction = player.GetComponent<Transform>().position - transform.position;
 
         
-        GameObject m_broom = Instantiate(broom, transform.position, Quaternion.identity);
+        GameObject m_bullet = Instantiate(bullet, transform.position, Quaternion.identity);
         
-        m_broom.GetComponent<Broom>().direction = (player.transform.position - transform.position).normalized;
+        m_bullet.GetComponent<Bullet>().direction = (player.transform.position - transform.position).normalized;
     }
 
     public void Die()
