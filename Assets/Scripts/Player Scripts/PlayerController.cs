@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -399,8 +400,7 @@ public class PlayerController : MonoBehaviour
         attackTimer = attackCD;
         GetComponent<BoxCollider2D>().enabled = true;
 
-
-        //animator?.SetTrigger("Attack");
+        animator?.SetTrigger("Attack");
         //if (!isDead && !hasWon && !isClimbing && isGrounded) attackSound?.Play();
         //if (!isDead && !hasWon && isGrounded) attackSound?.Play();
     }

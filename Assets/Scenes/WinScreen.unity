@@ -459,15 +459,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1412347534937145439, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4973288
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1412347534937145439, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3864256
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1412347534937145439, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.06477254
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1412347534937145439, guid: 49d9c83254b6b724386f560d1e17c378, type: 3}
       propertyPath: m_LocalRotation.w
@@ -588,7 +588,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1455383986}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1625578528}
+        m_TargetAssemblyTypeName: WinScript, Assembly-CSharp
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1455383986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,6 +651,7 @@ GameObject:
   - component: {fileID: 1625578526}
   - component: {fileID: 1625578525}
   - component: {fileID: 1625578524}
+  - component: {fileID: 1625578528}
   m_Layer: 5
   m_Name: WinScreen
   m_TagString: Untagged
@@ -729,6 +742,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1625578528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625578523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b33dbe7be074c4688a002d6b6dc221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738470390
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 356431026072087101, guid: e7e6fc3b64d7cef45b67651bfff84204, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e7e6fc3b64d7cef45b67651bfff84204, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
