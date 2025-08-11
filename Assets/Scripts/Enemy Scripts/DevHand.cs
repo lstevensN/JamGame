@@ -34,9 +34,9 @@ public class DevHand : MonoBehaviour
         if (playerDead.Value || InDialogue.Value) return;
         if (playerCaught)
         {
-            this.transform.position = Vector2.MoveTowards(this.transform.position, playerSpawn.transform.position, 0.01f);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, playerSpawn.transform.position, 1f);
         }
-        else if (!wait) this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, 0.001f);
+        else if (!wait) this.transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, 0.015f);
 
         waitTimer -= Time.deltaTime;
         if(waitTimer < 0.0f)

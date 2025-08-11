@@ -411,7 +411,8 @@ public class PlayerController : MonoBehaviour
         {
             if(isAttacking)
             {
-                collision.gameObject.GetComponent<Enemy>().Die();
+                try { collision.gameObject.GetComponent<Enemy>().Die(); }
+                catch { collision.gameObject.GetComponent<OtherEnemy>().Die(); }
             }
         }
     }
