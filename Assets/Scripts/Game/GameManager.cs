@@ -71,6 +71,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            GameHalfData.Value = 1;
         }
         else Destroy(gameObject);
     }
@@ -155,6 +157,11 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         // Get level "data", set SpawnPlayer & SpawnDev variables accordngly
+        if (scene.name == "Main_Menu" || scene.name == "WinScreen" || scene.name == "DeathScreen")
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         if (SpawnPlayer)
         {
