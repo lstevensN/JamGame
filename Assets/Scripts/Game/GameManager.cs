@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Canvas dialogueScreen;
     [SerializeField] TMP_Text dialogue;
 
-    [SerializeField] BoolDataSO playerDead;
+    public BoolDataSO playerDead;
     [SerializeField] BoolDataSO inDialogue;
     public IntDataSO GameHalfData;
 
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             GameHalfData.Value = 1;
+            playerDead.Value = false;
         }
         else Destroy(gameObject);
     }
