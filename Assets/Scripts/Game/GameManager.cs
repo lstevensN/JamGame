@@ -135,6 +135,8 @@ public class GameManager : MonoBehaviour
  
     private void LateUpdate()
     {
+        if (Player.transform.position.y < -25) playerDead.Value = true;
+
         if(Respawn)
         {
             if(SpawnPlayer)
