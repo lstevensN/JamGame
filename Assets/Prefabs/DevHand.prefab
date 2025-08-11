@@ -49,6 +49,8 @@ MonoBehaviour:
   PlayerGrabbedEvent: {fileID: 11400000, guid: fdd512653544870468ead8f1a556c2ef, type: 2}
   playerDead: {fileID: 11400000, guid: 194db0ad76aedf542bb8d0fcbaa36c56, type: 2}
   InDialogue: {fileID: 11400000, guid: f2b7e260372574c48b87f12992b297cb, type: 2}
+  lightHand: {fileID: -7794497528678201974, guid: 99937fa8d9264764d9f99e0a4c2bf166, type: 3}
+  darkHand: {fileID: -6902168888548888252, guid: 01b91c5f10be0f848af93456457d1fbc, type: 3}
   player: {fileID: 0}
   playerSpawn: {fileID: 0}
   playerCaught: 0
@@ -96,10 +98,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -7794497528678201974, guid: 99937fa8d9264764d9f99e0a4c2bf166, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5

@@ -8,6 +8,8 @@ public class DevHand : MonoBehaviour
     [SerializeField] EventChannelSO PlayerGrabbedEvent;
     [SerializeField] BoolDataSO playerDead;
     [SerializeField] BoolDataSO InDialogue;
+    [SerializeField] Sprite lightHand;
+    [SerializeField] Sprite darkHand;
 
 
 
@@ -46,6 +48,7 @@ public class DevHand : MonoBehaviour
 
         if (collision.gameObject.tag == "PlayerSpawn")
         {
+            gameObject.GetComponent<SpriteRenderer>().sprite = lightHand;
             playerCaught = false;
         }
     }
