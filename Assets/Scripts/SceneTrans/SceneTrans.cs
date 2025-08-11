@@ -5,13 +5,15 @@ public class SceneTrans : MonoBehaviour
 {
     public string scene;
 
-    public bool destroyOnGlitch = false;
+    public bool showAfterGlitch = false;
+    public bool destroyAfterGlitch = false;
 
     private bool loading = false;
 
     private void Awake()
     {
-        if (destroyOnGlitch && GameManager.Singleton.GameHalfData.Value == 2) Destroy(gameObject);
+        if (showAfterGlitch && GameManager.Singleton.GameHalfData.Value == 1) Destroy(gameObject);
+        if (destroyAfterGlitch && GameManager.Singleton.GameHalfData.Value == 2) Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
