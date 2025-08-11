@@ -43,6 +43,7 @@ public class DevHand : MonoBehaviour
         if (InDialogue.Value) return;
         if (collision.gameObject.tag == "Player")
         {
+            gameObject.GetComponent<SpriteRenderer>().sprite = darkHand;
             playerCaught = true;
         }
 
