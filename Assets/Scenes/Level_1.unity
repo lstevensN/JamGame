@@ -1688,6 +1688,10 @@ PrefabInstance:
       propertyPath: destroyOnGlitch
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6206337235978882558, guid: 018fda69646f61149989a35ae98a92a1, type: 3}
+      propertyPath: destroyAfterGlitch
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
